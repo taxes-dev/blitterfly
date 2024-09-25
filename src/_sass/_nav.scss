@@ -1,0 +1,86 @@
+.navbar {
+    /*background-image: url(../images/navbar.jpg);
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-color: #015b80;*/
+    background-color: #7B3F00;
+    min-height: auto;
+    line-height: 1;
+    .navbar-deco {
+        font-size: 2.8rem;
+        display: flex;
+        &.reversed {
+            flex-direction: row-reverse;
+        }
+        span:nth-child(1) {
+            color: $caramel;
+        }
+        span:nth-child(2) {
+            color: $comicred;
+        }
+        span:nth-child(3) {
+            color: $banana;
+        }
+    }
+}
+
+@include mixins.until (iv.$desktop) {
+    .navbar .navbar-deco {
+        display: none;
+    }
+}
+
+.navbar-brand {
+    min-height: auto;
+}
+
+#navbarBasic {
+    background-color: #fff;
+}
+
+.navbar-item {
+    min-height: auto;
+    line-height: 1;
+
+    &,
+    &:hover,
+    &:active,
+    &:visited {
+        text-decoration: none;
+    }
+}
+
+.navbar-brand .navbar-item {
+    font-family: $family-header;
+    font-size: 2.2rem;
+    text-transform: uppercase;
+    color: dv.$scheme-main;
+    
+    &,
+    &:hover,
+    &:active,
+    &:visited {
+        text-decoration: none;
+        color: dv.$scheme-main;
+    }
+}
+
+.navbar-burger,
+.navbar-burger:hover,
+.navbar-burger:active,
+.navbar-burger:visited {
+    color: dv.$scheme-main;
+}
+
+@include mixins.from(iv.$desktop) {
+    #navbarBasic {
+        background-color: transparent;
+    }
+    .navbar-item {
+        color: dv.$scheme-main;
+    }
+    .navbar-menu, .navbar-start {
+        justify-content: flex-end;
+        margin-right: 0;
+    }
+}

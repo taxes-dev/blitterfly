@@ -1,0 +1,132 @@
+@use "../../node_modules/bulma/sass/utilities/initial-variables" as iv with (
+    $scheme-h: 42,
+    $scheme-s: 79%,
+    $family-sans-serif: "'Evolventa', sans-serif"
+);
+@use "../../node_modules/bulma/sass/utilities/derived-variables" as dv with (
+    $scheme-main: #FCF5E5,
+    $text: #343444,
+    $link: #7B3F00
+);
+@use "../../node_modules/bulma/bulma";
+@use "../../node_modules/bulma/sass/utilities/mixins";
+@import "vars";
+@import "fonts";
+@import "nav";
+
+a:hover {
+    text-decoration: underline;
+}
+
+.title {
+    background-color: $title-color;
+    padding: 12px;
+    color: dv.$scheme-main;
+    position: relative;
+    letter-spacing: 0.03em;
+
+    @include mixins.from(iv.$desktop) {
+        &::after {
+            display: block;
+            position: absolute;
+            content: "\\\\\\";
+            color: dv.$scheme-main;
+            right: 12px;
+            top: -12px;
+            font-weight: bold;
+            font-size: 6rem;
+        }
+    }
+}
+
+.sidebar {
+    font-weight: bold;
+    @include mixins.from(iv.$tablet) {
+        text-align: right;
+    }
+}
+
+.pfcard {
+    background-repeat: no-repeat;
+    background-color: #fff;
+    &[data-image] {
+        cursor: pointer;
+    }
+    .card-content {
+        @include mixins.from(iv.$desktop) {
+            padding-left: 200px;
+        }
+        ul {
+            list-style-type: none;
+            margin-left: 0;
+        }
+    }
+
+    &.inverted {
+        background-color: #000;
+        .card-content {
+            a, a:visited {
+                color: $banana;
+            }
+            a:hover {
+                color: dv.$scheme-main;
+            }
+        }
+    }
+}
+
+.is-half .pfcard {
+    background-position: bottom 24px right 24px;
+    .card-content {
+        padding-left: 24px;
+        padding-bottom: 80px;
+    }
+}
+
+.pftab a {
+    &, &:hover {
+        text-decoration: none;
+    }
+}
+
+.pfpane {
+    display: none;
+    padding-top: 24px;
+    &.is-active {
+        display: block;
+    }
+    @include mixins.until(iv.$desktop) {
+        .media {
+            flex-direction: column;
+        }
+    }
+}
+
+#pflightbox .modal-content {
+    width: 80%;
+}
+
+.pfrebrand img[data-image] {
+    cursor: pointer;
+}
+
+.footer {
+    background-color: dv.$scheme-main;
+    border-top: 1px solid iv.$grey-darker;
+    margin-left: 3rem;
+    margin-right: 3rem;
+
+    .pony {
+        display: block;
+        height: 64px;
+        width: 64px;
+        margin: 0 auto;
+        opacity: 0.3;
+    }
+}
+
+.footer .icon-text {
+    font-family: $family-header;
+    margin: 0 0.5em;
+}
+

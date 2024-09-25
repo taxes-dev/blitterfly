@@ -1,0 +1,16 @@
+{
+  "name": "blitterfly",
+  "version": "1.0.0",
+  "description": "blitterfly.com web site",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx @11ty/eleventy",
+    "start": "npx @11ty/eleventy --serve"
+  },
+  "author": "Elise S. <el@taxes.dev>",
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1",
+    "@taxes/eleventy-plugin-dart-sass": "git+https://github.com/taxes-dev/eleventy-plugin-dart-sass.git",
+    "bulma": "^1.0.2"
+  }
+}
