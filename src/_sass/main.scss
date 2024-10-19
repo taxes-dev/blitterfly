@@ -1,7 +1,7 @@
 @use "../../node_modules/bulma/sass/utilities/initial-variables" as iv with (
     $scheme-h: 42,
     $scheme-s: 79%,
-    $family-sans-serif: "'Evolventa', sans-serif"
+    $family-sans-serif: "'Shantell-Sans', sans-serif"
 );
 @use "../../node_modules/bulma/sass/utilities/derived-variables" as dv with (
     $scheme-main: #FCF5E5,
@@ -19,23 +19,18 @@ a:hover {
 }
 
 .title {
-    background-color: $title-color;
-    padding: 12px;
+    padding: 0;
     color: dv.$scheme-main;
     position: relative;
     letter-spacing: 0.03em;
+    line-height: 95%;
+    border-bottom: 1px dashed dv.$scheme-main;
+}
 
-    @include mixins.from(iv.$desktop) {
-        &::after {
-            display: block;
-            position: absolute;
-            content: "\\\\\\";
-            color: dv.$scheme-main;
-            right: 12px;
-            top: -12px;
-            font-weight: bold;
-            font-size: 6rem;
-        }
+.content {
+    h2 {
+        border-bottom: 1px dashed dv.$scheme-main;
+        line-height: 95%;
     }
 }
 
@@ -126,7 +121,8 @@ a:hover {
 }
 
 .footer .icon-text {
-    font-family: $family-header;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
     margin: 0 0.5em;
 }
 

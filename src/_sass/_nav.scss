@@ -1,86 +1,104 @@
+$navbar-bkg-color: #015b80;
+$navbar-bkg-darker: scale-color(#015b80, $lightness: -33%);
+
 .navbar {
-    /*background-image: url(../images/navbar.jpg);
+    background-image: url(../images/blitterfly.png);
     background-repeat: no-repeat;
     background-position: center top;
-    background-color: #015b80;*/
-    background-color: #7B3F00;
-    min-height: auto;
-    line-height: 1;
-    .navbar-deco {
-        font-size: 2.8rem;
-        display: flex;
-        &.reversed {
-            flex-direction: row-reverse;
-        }
-        span:nth-child(1) {
-            color: $caramel;
-        }
-        span:nth-child(2) {
-            color: $comicred;
-        }
-        span:nth-child(3) {
-            color: $banana;
-        }
-    }
-}
-
-@include mixins.until (iv.$desktop) {
-    .navbar .navbar-deco {
-        display: none;
-    }
-}
-
-.navbar-brand {
-    min-height: auto;
-}
-
-#navbarBasic {
-    background-color: #fff;
-}
-
-.navbar-item {
-    min-height: auto;
+    background-color: $navbar-bkg-color;
+    background-size: 138px 90px;
+    background-position: 24px 10px;
+    image-rendering: pixelated;
+    height: 110px;
     line-height: 1;
 
-    &,
-    &:hover,
-    &:active,
-    &:visited {
-        text-decoration: none;
+
+    @include mixins.until (iv.$desktop) {
+        .navbar-deco {
+            display: none;
+        }
     }
-}
 
-.navbar-brand .navbar-item {
-    font-family: $family-header;
-    font-size: 2.2rem;
-    text-transform: uppercase;
-    color: dv.$scheme-main;
-    
-    &,
-    &:hover,
-    &:active,
-    &:visited {
-        text-decoration: none;
-        color: dv.$scheme-main;
+    .navbar-brand {
+        min-height: auto;
+        @include mixins.until(iv.$desktop) {
+            padding-top: 28px;
+        }
     }
-}
 
-.navbar-burger,
-.navbar-burger:hover,
-.navbar-burger:active,
-.navbar-burger:visited {
-    color: dv.$scheme-main;
-}
-
-@include mixins.from(iv.$desktop) {
     #navbarBasic {
-        background-color: transparent;
+        background-color: $navbar-bkg-color;
+        border-top: 1px solid $navbar-bkg-darker;
     }
-    .navbar-item {
+
+    a.navbar-item {
+        min-height: auto;
+        line-height: 1;
+
+        &,
+        &:hover,
+        &:active,
+        &:visited {
+            text-decoration: none;
+        }
+
+        &:hover {
+            background-color: $navbar-bkg-darker;
+        }
+
+        @include mixins.from(iv.$desktop) {
+
+            &:hover {
+                background-repeat: no-repeat;
+                background-size: 42px 50px;
+                background-position: 50% 50%;
+                background-color: transparent;
+            }
+
+            @for $i from 1 through 4 {
+            &:nth-child(#{$i}):hover {
+                background-image: url(../images/blitterfly-nav-#{$i}.png);
+            }
+        }
+        }
+    }
+
+    .navbar-brand .navbar-item {
+        font-family: $family-header;
+        font-size: 2.2rem;
+        color: dv.$scheme-main;
+        text-shadow: 3px 3px dv.$dark;
+
+        &,
+        &:hover,
+        &:active,
+        &:visited {
+            text-decoration: none;
+            color: dv.$scheme-main;
+            background-color: transparent;
+        }
+    }
+
+    .navbar-burger,
+    .navbar-burger:hover,
+    .navbar-burger:active,
+    .navbar-burger:visited {
         color: dv.$scheme-main;
     }
-    .navbar-menu, .navbar-start {
-        justify-content: flex-end;
-        margin-right: 0;
+
+    @include mixins.from(iv.$desktop) {
+        #navbarBasic {
+            background-color: transparent;
+        }
+
+        .navbar-item {
+            color: dv.$scheme-main;
+        }
+
+        .navbar-menu,
+        .navbar-start {
+            justify-content: flex-end;
+            margin-right: 0;
+        }
     }
 }
