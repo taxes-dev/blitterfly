@@ -1,18 +1,19 @@
-@use "../../node_modules/bulma/sass/utilities/initial-variables" as iv with (
-    $scheme-h: 42,
+@use "../../node_modules/bulma/sass/utilities/initial-variables" as iv with ($scheme-h: 42,
     $scheme-s: 79%,
     $family-sans-serif: "'Shantell-Sans', sans-serif"
 );
-@use "../../node_modules/bulma/sass/utilities/derived-variables" as dv with (
-    $scheme-main: #FCF5E5,
+@use "../../node_modules/bulma/sass/utilities/derived-variables" as dv with ($scheme-main: #FCF5E5,
     $text: #343444,
-    $link: #7B3F00
-);
+    $link: #7B3F00);
 @use "../../node_modules/bulma/bulma";
 @use "../../node_modules/bulma/sass/utilities/mixins";
 @import "vars";
 @import "fonts";
 @import "nav";
+
+body {
+    background-color: #222;
+}
 
 a:hover {
     text-decoration: underline;
@@ -36,6 +37,7 @@ a:hover {
 
 .sidebar {
     font-weight: bold;
+
     @include mixins.from(iv.$tablet) {
         text-align: right;
     }
@@ -44,13 +46,16 @@ a:hover {
 .pfcard {
     background-repeat: no-repeat;
     background-color: #fff;
+
     &[data-image] {
         cursor: pointer;
     }
+
     .card-content {
         @include mixins.from(iv.$desktop) {
             padding-left: 200px;
         }
+
         ul {
             list-style-type: none;
             margin-left: 0;
@@ -59,10 +64,14 @@ a:hover {
 
     &.inverted {
         background-color: #000;
+
         .card-content {
-            a, a:visited {
+
+            a,
+            a:visited {
                 color: $banana;
             }
+
             a:hover {
                 color: dv.$scheme-main;
             }
@@ -72,6 +81,7 @@ a:hover {
 
 .is-half .pfcard {
     background-position: bottom 24px right 24px;
+
     .card-content {
         padding-left: 24px;
         padding-bottom: 80px;
@@ -79,7 +89,9 @@ a:hover {
 }
 
 .pftab a {
-    &, &:hover {
+
+    &,
+    &:hover {
         text-decoration: none;
     }
 }
@@ -87,9 +99,11 @@ a:hover {
 .pfpane {
     display: none;
     padding-top: 24px;
+
     &.is-active {
         display: block;
     }
+
     @include mixins.until(iv.$desktop) {
         .media {
             flex-direction: column;
@@ -106,10 +120,9 @@ a:hover {
 }
 
 .footer {
-    background-color: dv.$scheme-main;
-    border-top: 1px solid iv.$grey-darker;
-    margin-left: 3rem;
-    margin-right: 3rem;
+    box-shadow: 0 0 8px rgba(87, 87, 87, 0.9);
+    clip-path: inset(-8px 0 0 0);
+    background-color: #015b80;
 
     .pony {
         display: block;
@@ -125,4 +138,3 @@ a:hover {
     font-weight: bold;
     margin: 0 0.5em;
 }
-

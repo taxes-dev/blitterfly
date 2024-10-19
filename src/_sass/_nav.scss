@@ -11,6 +11,7 @@ $navbar-bkg-darker: scale-color(#015b80, $lightness: -33%);
     image-rendering: pixelated;
     height: 110px;
     line-height: 1;
+    box-shadow: 0 3px 6px scale-color($navbar-bkg-color, $alpha: 90%);
 
 
     @include mixins.until (iv.$desktop) {
@@ -63,7 +64,7 @@ $navbar-bkg-darker: scale-color(#015b80, $lightness: -33%);
         }
     }
 
-    .navbar-brand .navbar-item {
+    .navbar-brand a.navbar-item {
         font-family: $family-header;
         font-size: 2.2rem;
         color: dv.$scheme-main;
@@ -76,6 +77,7 @@ $navbar-bkg-darker: scale-color(#015b80, $lightness: -33%);
             text-decoration: none;
             color: dv.$scheme-main;
             background-color: transparent;
+            background-image: none;
         }
     }
 
