@@ -35,6 +35,10 @@ a:hover {
     }
 }
 
+h2, h3 { 
+    color: dv.$scheme-main;
+}
+
 .sidebar {
     font-weight: bold;
 
@@ -89,6 +93,9 @@ a:hover {
 }
 
 .pftab a {
+    font-family: $family-header;
+    text-transform: lowercase;
+    color: dv.$scheme-main;
 
     &,
     &:hover {

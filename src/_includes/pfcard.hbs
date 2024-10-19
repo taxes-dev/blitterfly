@@ -1,7 +1,7 @@
 <div class="card pfcard {{#if inverted}}inverted{{/if}}" {{#if image}}data-image="/images/portfolio/large/{{image}}"{{/if}}
     style="background-image: url(/images/portfolio/thumbnails/{{thumbnail}});">
     <div class="card-content">
-        <div class="content {{#if inverted}}has-text-light{{/if}}">
+        <div class="content {{#if inverted}}has-text-light{{else}}has-text-dark{{/if}}">
             <p class="is-size-5 has-text-weight-medium">{{title}}</p>
             <p><span class="tag is-info">{{label}}</span> {{> @partial-block }}</p>
                     {{#if links}}
